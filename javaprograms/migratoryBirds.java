@@ -53,3 +53,9 @@ public class Solution {
         bufferedWriter.close();
     }
 }
+//Print the type number of the most common bird; if two or more types of birds are equally common, choose the type with the smallest ID number.
+/*Sample Input
+11
+1 2 3 4 5 4 3 2 1 3 4
+Sample Output
+3
