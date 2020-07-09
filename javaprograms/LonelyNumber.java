@@ -62,3 +62,10 @@ public class Solution {
         scanner.close();
     }
 }
+
+
+/*Sample Input
+5
+0 0 1 2 1
+Sample Output
+2*/
