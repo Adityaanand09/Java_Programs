@@ -1,0 +1,38 @@
+    static long flippingBits(long n) {
+        long b[]=new long[32];int j=31;
+        String k="";long dec_value = 0;
+        while(n>0)
+        {
+            b[j] = n%2;
+            n=n/2;
+            j--;
+        }
+        for(int i=0;i<32;i++)
+        {
+            if(b[i] == 0)
+            k+='1';
+            if(b[i]==1)
+            k+='0';
+        }
+       
+        long base = 1; 
+  
+        int len = k.length(); 
+        for (int i = len - 1; i >= 0; i--) { 
+            if (k.charAt(i) == '1') 
+                dec_value += base; 
+            base = base * 2; 
+        }
+        return dec_value; 
+    }
+    
+    /*SAMPLE INPUT
+    3
+2147483647
+1
+0
+SAMPLE OUTPUT
+2147483648
+4294967294
+4294967295
+REPLACE ONE BY ZERO AND ZERO BY 1 in the binary form and convert back to int*/
