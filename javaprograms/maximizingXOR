@@ -1,0 +1,20 @@
+    static int maximizingXor(int l, int r) {
+
+        int m = l ^ r;int s=0;
+        while(m>0)
+        {
+            m=m>>1;
+            s++;
+        }
+        int two = 1,max=0;
+        while(s-->0)
+        {
+            max+=two;
+            two = two<<1;
+
+        }
+        return max;
+
+    }
+    
+    /*if l=10 and r=15 then find max xor between any two integer in [10,15]
