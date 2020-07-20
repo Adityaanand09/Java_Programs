@@ -1,0 +1,24 @@
+ static int countMaxSubarrWithEqualZeroAndOne(int arr[], int N)
+    {
+        int c=0;int max_length = 0;
+        // add your code here
+       HashMap<Integer,Integer> h =new HashMap<Integer,Integer>();
+	    int count =0;h.put(0,-1);int d=0;int max_length = 0;
+	    for(int i=0; i<N;i++ )
+	    {
+	        if(arr[i]==0)
+	        count+=-1;
+	        else
+	        count+=1;
+	        if(h.containsKey(count))
+	       max_length = Math.max(max_length,i-h.get(count));
+	       else
+	       h.put(count,i);
+	    }
+	 
+	   return (max_length);    
+        
+    }
+}
+
+
