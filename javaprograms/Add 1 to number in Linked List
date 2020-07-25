@@ -1,0 +1,54 @@
+class Sol
+{
+    public static Node addOne(Node head) 
+    { 
+        //code here.
+        ArrayList<Integer> A= new ArrayList<Integer>();
+        Node temp = head;
+        while(temp!=null)
+        {
+            A.add(temp.data);
+            temp = temp.next;
+        }
+        int carry = 1;
+        for(int i =A.size()-1;i>=0;i--)
+        {
+            int k =A.get(i) + carry;
+            A.set(i,k%10);
+            carry = k/10;
+            if(carry == 0)
+            break;
+        }
+        if(carry ==1)
+        A.add(0,carry);
+        Node start = null,curr =null;
+    for(Integer i:A)
+    {
+        Node ptr = new Node(i);
+        if(start == null)
+        {
+            start = ptr;
+            curr = ptr;
+        }
+        else
+        {
+            curr.next = ptr;
+            curr = ptr;
+        }
+    }
+        return start;
+    }  
+}
+
+input 
+4
+456
+123
+999
+1879
+
+output
+457 
+124 
+1000 
+1880
