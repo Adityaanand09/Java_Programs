@@ -1,0 +1,43 @@
+  Node swapkthnode(Node head, int num, int K)
+    {
+        // your code here
+        if(num<K)
+        return head;
+        
+        if(2*K-1 == num )
+        return head;
+        
+        Node x_prev = null; Node x= head;
+        for(int i = 1;i<K;i++)
+        {
+            x_prev = x;
+            x = x.next;
+        }
+        Node y_prev = null;Node y = head;
+        for(int i=1;i<(num-K+1);i++)
+        {
+            y_prev = y;
+            y=y.next;
+        }
+        if(x_prev != null)
+        x_prev.next = y;
+        
+        if(y_prev !=null)
+        y_prev.next = x;
+        
+        Node temp = x.next;
+        x.next = y.next;
+        y.next = temp;
+        
+        if(K==1)
+        head = y;
+         if(K==num)
+         head = x;
+         
+         return head;
+    }
+    
+    Input: 1 -> 2 -> 3 -> 4 -> 5, K = 5
+Output: 5 -> 2 -> 3 -> 4 -> 1 
+Explanation: The 5th node from 1st is 5 and 
+5th node from last is 1, so swap them.
