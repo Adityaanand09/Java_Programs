@@ -1,0 +1,47 @@
+class GfG{
+	public Stack<Integer> sort(Stack<Integer> s)
+	{
+		//add code here.
+	if(s.isEmpty())
+	return s;
+	
+	int t = s.pop();
+	sort(s);
+     insertAtCorrect(s,t);
+     return s;
+    }
+    public static void insertAtCorrect(Stack<Integer> s , int k)
+    {
+        if(s.isEmpty() || s.peek()<k)
+        {
+            s.push(k);
+            return;
+        }
+        int temp = s.pop();
+        insertAtCorrect(s,k);
+        s.push(temp);
+    }
+}
+
+Input:
+2
+3
+3 2 1
+5
+11 2 32 3 41
+
+Output:
+3 2 1
+41 32 11 3 2
+
+Explanation:
+For first test case stack will be
+1
+2
+3
+After sorting 
+3
+2 
+1
+
+When elements  popped : 3 2 1
