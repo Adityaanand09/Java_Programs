@@ -20,7 +20,7 @@ public class Main {
     
     public static void saddle(int[][] a)
     {
-        int minr=0,maxc=a[0][0];int col_index=0;
+        int minr=0,maxc=a[0][0];int f=1;int col_index=0;
         for(int i=0;i<a.length;i++)
         {
              minr = a[i][0];
@@ -34,23 +34,24 @@ public class Main {
                 }
             }
             
-            
-        }
-        int k=0;
-        for( k=0;k<a.length;k++)
-        {
-            if(minr<a[k][col_index])
+            int k=0;
+            for(k=0;k<a.length;k++)
             {
+                if(a[k][col_index]>a[i][col_index])
+                {
+                    
+                    break;
+                }
                 
-               break;
             }
-            
-            
+            if(k==a.length)
+         {
+             System.out.println(minr);
+             return;
+         }
+        
         }
-        if(k!=a.length)
-        System.out.println("Invalid input");
-        else
-        System.out.println(minr);
+         
+          System.out.println("Invalid input");
     }
-
 }
